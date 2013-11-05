@@ -10,10 +10,8 @@ alias -- -="cd -"
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
+alias p="cd ~/Projects"
 alias g="git"
-alias h="history"
-alias j="jobs"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -144,3 +142,14 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# Test the response time for a specific URL
+alias response='curl -o /dev/null -s -w %{time_total}\\n'
+
+alias url="open -a /Applications/Google\ Chrome.app http://$1"
+
+alias forever='forever -w -a -f forever.log -o out.log -e error.log'
+
+function json() {
+    curl "$@" | python -mjson.tool ;
+}
